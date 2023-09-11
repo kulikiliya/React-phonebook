@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import styled from 'styled-components';
 
 export class AddForm extends Component {
   state = {
@@ -17,10 +18,10 @@ export class AddForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <FormDiv onSubmit={this.handleSubmit}>
         <label>
           Name
-          <input
+          <Input
             onChange={this.handleInput}
             type="text"
             name="name"
@@ -30,7 +31,7 @@ export class AddForm extends Component {
         </label>
         <label>
           Phone
-          <input
+          <Input
             onChange={this.handleInput}
             type="tel"
             name="number"
@@ -39,8 +40,27 @@ export class AddForm extends Component {
           />
         </label>
 
-        <button>Add contact</button>
-      </form>
+        <Button>Add contact</Button>
+      </FormDiv>
     );
   }
 }
+
+const FormDiv = styled.form`
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid grey;
+`;
+
+const Button = styled.button`
+  width: 250/30px;
+  color: teal;
+`;
+
+const Input = styled.input`
+  margin-left: 5px;
+`;

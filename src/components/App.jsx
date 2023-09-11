@@ -2,6 +2,7 @@ import React from 'react';
 import { Contacts } from './contatcs/Contacts';
 import { AddForm } from './AddForm';
 import { Filter } from './filter/Fiter';
+import styled from 'styled-components';
 
 export class App extends React.Component {
   state = {
@@ -49,12 +50,21 @@ export class App extends React.Component {
     const filteredData = this.filterContacts(contacts, filter);
     return (
       <>
-        <h1>Phonebook</h1>
-        <AddForm addContacts={this.handleAddContacts} />
-        <h2>Contacts</h2>
-        <Filter takeData={this.handleChangeFilter} filterValue={filter} />
-        <Contacts filter={filteredData} deleteData={this.handleDeleteTodo} />
+        <Wrapper>
+          <h1>Phonebook</h1>
+          <AddForm addContacts={this.handleAddContacts} />
+          <h2>Contacts</h2>
+          <Filter takeData={this.handleChangeFilter} filterValue={filter} />
+          <Contacts filter={filteredData} deleteData={this.handleDeleteTodo} />
+        </Wrapper>
       </>
     );
   }
 }
+
+const Wrapper = styled.div`
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

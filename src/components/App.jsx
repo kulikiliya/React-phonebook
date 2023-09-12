@@ -1,9 +1,9 @@
 import React from 'react';
 import { Contacts } from './contatcs/Contacts';
-import { AddForm } from './AddForm';
+import { AddForm } from './add_inputs/AddForm';
 import { Filter } from './filter/Fiter';
-import styled from 'styled-components';
-
+import { Wrapper } from './App.styled';
+import { filterContacts } from './utility/filterItem';
 export class App extends React.Component {
   state = {
     contacts: [
@@ -31,12 +31,6 @@ export class App extends React.Component {
     this.setState({ filter });
   };
 
-  filterContacts = (data, filter) => {
-    return this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
-    );
-  };
-
   // Удаляем
 
   handleDeleteTodo = id => {
@@ -47,7 +41,7 @@ export class App extends React.Component {
 
   render() {
     const { contacts, filter } = this.state;
-    const filteredData = this.filterContacts(contacts, filter);
+    const filteredData = filterContacts(contacts, filter);
     return (
       <>
         <Wrapper>
@@ -61,10 +55,3 @@ export class App extends React.Component {
     );
   }
 }
-
-const Wrapper = styled.div`
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;

@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import styled from 'styled-components';
+import { FormDiv, Button, Input } from './AddForm.styled';
+import PropTypes from 'prop-types';
 
 export class AddForm extends Component {
   state = {
@@ -46,21 +47,6 @@ export class AddForm extends Component {
   }
 }
 
-const FormDiv = styled.form`
-  width: 250px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid grey;
-`;
-
-const Button = styled.button`
-  width: 250/30px;
-  color: teal;
-`;
-
-const Input = styled.input`
-  margin-left: 5px;
-`;
+AddForm.propType = {
+  addContacts: PropTypes.func,
+};

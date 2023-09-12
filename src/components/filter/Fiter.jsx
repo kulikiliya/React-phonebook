@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { FilerInput } from './Filer.styled';
 
 export const Filter = ({ takeData, filterValue }) => {
   return (
@@ -15,6 +16,7 @@ export const Filter = ({ takeData, filterValue }) => {
   );
 };
 
-const FilerInput = styled.input`
-  margin-left: 10px;
-`;
+Filter.propTypes = {
+  takeData: PropTypes.func,
+  filterValue: PropTypes.string,
+};

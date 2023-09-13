@@ -1,9 +1,10 @@
 import React from 'react';
 import { Contacts } from './contatcs/Contacts';
-import { AddForm } from './add_inputs/AddForm';
+import { AddForm } from './addForm/AddForm';
 import { Filter } from './filter/Fiter';
 import { Wrapper } from './App.styled';
-import { filterContacts } from './utility/filterItem';
+import { filterContacts } from '../utility/filterItem';
+
 export class App extends React.Component {
   state = {
     contacts: [
